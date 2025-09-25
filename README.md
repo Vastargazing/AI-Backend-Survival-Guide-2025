@@ -7,6 +7,8 @@
 
 ---
 
+
+
 ## 📚 Оглавление
 
 ### **Часть 1: AI Backend Fundamentals**
@@ -75,6 +77,7 @@
 - [💰 Cost Monitoring для LLM APIs](#-cost-monitoring-для-llm-apis-) ⭐⭐⭐
 - [🎯 Quality Metrics (Hallucination Detection)](#-quality-metrics-hallucination-detection-) ⭐⭐
 - [🔍 AI Request Tracing](#-ai-request-tracing-) ⭐⭐
+- [📊 AI Monitoring Dashboards (Grafana, DataDog)](#-ai-monitoring-dashboards-grafana-datadog-) ⭐⭐⭐
 
 ---
 
@@ -136,9 +139,10 @@
 - **Weaviate** — open-source, поддерживает GraphQL, metadata + vector search
 
 🏢 **Используют:**  
-- **OpenAI** — pgvector для RAG  
+- **OpenAI ChatGPT** — pgvector для RAG в custom GPTs
 - **Notion AI** — Pinecone для поиска по заметкам  
-- **Aleph Alpha** — Weaviate для семантического поиска
+- **Alibaba Cloud** — Weaviate для e-commerce поиска
+- **Yandex Cloud** — ClickHouse + vector extensions
 
 ---
 
@@ -159,9 +163,10 @@
 - Ранжирование ответов в чатах
 
 🏢 **Используют:**  
-- **You.com** — для поиска по embedding'ам  
-- **Tinkoff AI** — для семантического поиска по транзакциям  
-- **GitHub Copilot** — embeddings кода для подсказок
+- **You.com** — embeddings для semantic search
+- **Baidu AI** — ERNIE embeddings для поиска по транзакциям  
+- **GitHub Copilot** — code embeddings для подсказок
+- **Alibaba Qwen** — multilingual embeddings
 
 ---
 
@@ -170,20 +175,28 @@
 **Что это:**  
 Поиск ближайших векторов по метрике расстояния.
 
-**Метрики:**
-- **Cosine similarity** — угол между векторами  
-- **Euclidean** — обычное расстояние  
-- **Dot product** — скалярное произведение
+### **Сравнение Distance Metrics:**
 
-**Примеры:**
-- Поиск похожих товаров  
-- Рекомендации фильмов  
-- Семантический поиск по базе знаний
+| Метрика | Формула | Лучше для | Недостатки |
+|---------|---------|-----------|------------|
+| **Cosine** | `1 - (A·B)/(||A||·||B||)` | Текст, семантика | Игнорирует magnitude |
+| **Euclidean** | `√Σ(ai-bi)²` | Изображения, embeddings | Чувствителен к размерности |
+| **Dot Product** | `Σ(ai·bi)` | Рекомендации | Зависит от длины вектора |
+| **Manhattan** | `Σ|ai-bi|` | Sparse features | Медленнее на высоких размерностях |
+
+### **Performance Comparison:**
+```
+Cosine:     ~0.1ms per 1K vectors (768dim)
+Euclidean:  ~0.08ms per 1K vectors  
+Dot Product: ~0.05ms per 1K vectors
+Manhattan:  ~0.12ms per 1K vectors
+```
 
 🏢 **Используют:**  
-- **Amazon** — рекомендации  
-- **Netflix** — похожие фильмы  
-- **VK AI** — поиск по embedding'ам постов
+- **Amazon** — cosine для продуктовых рекомендаций  
+- **Netflix** — dot product для user-item similarity  
+- **Google Search** — euclidean для image embeddings
+- **Alibaba** — cosine для e-commerce поиска
 
 ---
 
@@ -220,9 +233,10 @@
 - **Local Models** — `LLaMA`, `Mistral`, `GGUF` — для on-prem решений
 
 🏢 **Используют:**  
-- **Notion AI** — OpenAI  
-- **Slack** — Anthropic  
-- **Tinkoff AI** — локальные модели для приватных данных
+- **Notion AI** — OpenAI GPT-4 для генерации контента
+- **Claude by Anthropic** — используется в Slack, Notion
+- **Google Bard** — PaLM/Gemini для поиска и чатов  
+- **Local deployments** — Alibaba Qwen, Yandex GPT для приватных данных
 
 ---
 
@@ -250,16 +264,100 @@ LLM считает токены → чем больше токенов, тем �
 **Что это:**  
 Искусство писать промпты, которые стабильно работают в проде.
 
-**Практики:**
-- ✅ Chain-of-thought → пошаговое мышление  
-- ✅ Few-shot → примеры в промпте  
-- ✅ Role-based → "Ты — банковский аналитик…"  
-- ✅ Промпт как код → версионирование, тесты, A/B
+### **Production Prompt Patterns:**
+
+**1. Chain-of-Thought (CoT):**
+```python
+def create_cot_prompt(question: str) -> str:
+    return f"""
+Реши задачу пошагово:
+
+Вопрос: {question}
+
+Давай думать пошагово:
+1. Сначала определю, что нужно найти
+2. Затем проанализирую исходные данные  
+3. Применю нужную логику/формулу
+4. Проверю результат на здравый смысл
+
+Ответ:
+"""
+
+# Пример использования
+prompt = create_cot_prompt("Если в корзине 12 яблок и я съел треть, сколько осталось?")
+```
+
+**2. Few-Shot Learning:**
+```python
+def build_few_shot_prompt(examples: list, new_input: str) -> str:
+    prompt = "Анализируй тональность отзывов:\n\n"
+    
+    for example in examples:
+        prompt += f"Отзыв: {example['text']}\n"
+        prompt += f"Тональность: {example['sentiment']}\n\n"
+    
+    prompt += f"Отзыв: {new_input}\nТональность:"
+    return prompt
+
+# Production example
+examples = [
+    {"text": "Отличный продукт, всем рекомендую!", "sentiment": "положительная"},
+    {"text": "Ужасное качество, деньги на ветер", "sentiment": "отрицательная"},
+    {"text": "Нормально, но есть недочёты", "sentiment": "нейтральная"}
+]
+```
+
+**3. Role-Based Prompting:**
+```python
+def create_role_prompt(role: str, task: str, context: str = "") -> str:
+    roles = {
+        "banker": "Ты — опытный банковский аналитик с 15-летним стажем.",
+        "developer": "Ты — senior Python разработчик, эксперт по чистому коду.",
+        "lawyer": "Ты — корпоративный юрист, специализируешься на IT-праве."
+    }
+    
+    return f"""
+{roles[role]}
+
+{context}
+
+Задача: {task}
+
+Отвечай профессионально, основываясь на своём опыте:
+"""
+```
+
+**4. Prompt Versioning & A/B Testing:**
+```python
+class PromptTemplate:
+    def __init__(self, name: str, version: str, template: str):
+        self.name = name
+        self.version = version  
+        self.template = template
+        self.metrics = {"accuracy": 0, "latency": 0, "cost": 0}
+    
+    def render(self, **kwargs) -> str:
+        return self.template.format(**kwargs)
+
+# Version management
+PROMPTS = {
+    "summarization_v1": PromptTemplate(
+        "summarization", "v1",
+        "Кратко перескажи текст в 3 предложениях:\n{text}"
+    ),
+    "summarization_v2": PromptTemplate(
+        "summarization", "v2", 
+        "Создай структурированный summary:\n\nОсновные тезисы:\n{text}\n\nВывод в 2-3 предложениях:"
+    )
+}
+```
 
 🏢 **Используют:**  
-- **GitHub Copilot** — few-shot + role  
-- **Tinkoff AI** — шаблоны промптов для разных сценариев  
-- **Replit AI** — chain-of-thought для генерации кода
+- **GitHub Copilot** — few-shot + role-based для code generation
+- **Google Bard** — CoT для математических задач  
+- **Anthropic Claude** — constitutional AI prompts для безопасности
+- **Alibaba Qwen** — role-based промпты для разных экспертных доменов
+- **Yandex GPT** — few-shot learning для русскоязычных задач
 
 ---
 
@@ -335,15 +433,48 @@ LLM считает токены → чем больше токенов, тем �
 **Что это:**  
 Разделение текста на куски для embedding'а и поиска.
 
-**Стратегии:**
-- ✅ Fixed-size chunks (например, 500 токенов)  
-- ✅ Semantic splitting (по заголовкам, абзацам)  
-- ✅ Overlap (например, 20% пересечения)
+### **Сравнение Chunking Strategies:**
+
+| Стратегия | Размер | Overlap | Плюсы | Минусы | Лучше для |
+|-----------|--------|---------|--------|--------|-----------|
+| **Fixed Size** | 500-1000 токенов | 10-20% | Простота, стабильность | Может резать предложения | Общие документы |
+| **Semantic** | Переменный | По смыслу | Сохраняет контекст | Сложнее реализовать | Структурированный текст |
+| **Recursive** | Адаптивный | 20% | Баланс размера/смысла | Может быть медленным | Смешанный контент |
+| **Document-based** | По разделам | Заголовки | Естественные границы | Неравномерные размеры | Техническая документация |
+
+### **Code Example - Semantic Chunking:**
+```python
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+def smart_chunk_text(text: str, chunk_size: int = 1000):
+    """Умное разбиение с overlap и сохранением контекста"""
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size,
+        chunk_overlap=200,  # 20% overlap
+        separators=["\n\n", "\n", ".", "!", "?", " "],
+        length_function=len
+    )
+    
+    chunks = splitter.split_text(text)
+    
+    # Добавляем метаданные для каждого chunk'а
+    enhanced_chunks = []
+    for i, chunk in enumerate(chunks):
+        enhanced_chunks.append({
+            "text": chunk,
+            "chunk_id": i,
+            "char_count": len(chunk),
+            "word_count": len(chunk.split())
+        })
+    
+    return enhanced_chunks
+```
 
 🏢 **Используют:**  
-- **LangChain** — `RecursiveCharacterTextSplitter`  
-- **Tinkoff AI** — chunk'инг по смыслу  
-- **ChatGPT RAG** — с overlap для контекста
+- **LangChain** — RecursiveCharacterTextSplitter  
+- **OpenAI** — semantic chunking для ChatGPT plugins
+- **Anthropic** — document-based для Claude  
+- **Yandex GPT** — adaptive chunking для YaGPT
 
 ---
 
@@ -834,6 +965,99 @@ FastAPI — быстрый backend-фреймворк, WebSocket — для ст
 
 ---
 
+## 📊 AI Monitoring Dashboards (Grafana, DataDog) ⭐⭐⭐
+
+**Что мониторим в AI системах:**
+
+### **LLM Performance Metrics**
+- **Latency:** P50, P95, P99 времени ответа
+- **Throughput:** RPS (requests per second)  
+- **Token Usage:** input/output tokens per request
+- **Error Rate:** 4xx/5xx ошибки, timeouts
+
+### **Business Metrics**
+- **Cost per Request:** $ на запрос/пользователя/день
+- **User Engagement:** session length, repeat usage
+- **Quality Score:** thumbs up/down, CSAT
+- **Cache Hit Rate:** % кэшированных ответов
+
+### **Infrastructure Metrics**
+- **GPU Utilization:** % загрузки, memory usage
+- **Queue Depth:** pending AI tasks
+- **Model Load Time:** время загрузки модели
+- **Database Performance:** vector search latency
+
+### **Grafana Dashboard Example:**
+```json
+{
+  "dashboard": {
+    "title": "AI Backend Monitoring",
+    "panels": [
+      {
+        "title": "LLM Request Latency",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, llm_request_duration_seconds)",
+            "legendFormat": "P95 Latency"
+          }
+        ]
+      },
+      {
+        "title": "Token Usage by Model",
+        "type": "bargauge", 
+        "targets": [
+          {
+            "expr": "rate(llm_tokens_total[5m]) by (model)",
+            "legendFormat": "{{model}}"
+          }
+        ]
+      },
+      {
+        "title": "Cost Tracking",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "sum(llm_cost_usd_total)",
+            "legendFormat": "Total Cost ($)"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### **Alert Rules:**
+```yaml
+groups:
+  - name: ai_backend_alerts
+    rules:
+      - alert: HighLLMLatency
+        expr: histogram_quantile(0.95, llm_request_duration_seconds) > 5
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "LLM latency is high ({{ $value }}s)"
+          
+      - alert: LLMCostSpike
+        expr: rate(llm_cost_usd_total[1h]) > 100
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "LLM costs spiking: ${{ $value }}/hour"
+```
+
+🏢 **Используют:**
+- **Anthropic** — Grafana + Prometheus для мониторинга Claude API
+- **Google AI** — DataDog для Bard infrastructure monitoring  
+- **Alibaba Cloud** — кастомные дашборды для Qwen models
+- **Yandex GPT** — внутренние дашборды + YandexCloud monitoring
+
+---
+
 ## 🔄 Circuit Breaker для AI Services ⭐⭐⭐
 
 **Что это:**  
@@ -898,17 +1122,84 @@ FastAPI — быстрый backend-фреймворк, WebSocket — для ст
 
 **Метрики:**
 - ✅ CTR / Conversion  
-- ✅ User feedback  
-- ✅ Token usage  
-- ✅ Latency
+- ✅ User feedback (thumbs up/down)
+- ✅ Token usage efficiency
+- ✅ Response latency
+- ✅ Task completion rate
+
+### **A/B Testing Framework:**
+```python
+import random
+from dataclasses import dataclass
+from typing import Dict, Any
+
+@dataclass
+class ABTestConfig:
+    experiment_id: str
+    variants: Dict[str, Any]  # model configs
+    traffic_split: Dict[str, float]  # percentage per variant
+    
+def route_to_variant(user_id: str, config: ABTestConfig) -> str:
+    """Consistent user routing to A/B variants"""
+    hash_val = hash(f"{config.experiment_id}_{user_id}") % 100
+    
+    cumulative = 0
+    for variant, percentage in config.traffic_split.items():
+        cumulative += percentage * 100
+        if hash_val < cumulative:
+            return variant
+    
+    return list(config.variants.keys())[0]  # fallback
+
+# Example A/B test config
+experiment = ABTestConfig(
+    experiment_id="gpt4_vs_claude",
+    variants={
+        "gpt4": {"model": "gpt-4", "temperature": 0.7},
+        "claude": {"model": "claude-3", "temperature": 0.7}
+    },
+    traffic_split={"gpt4": 0.5, "claude": 0.5}
+)
+```
 
 **Инструменты:**
-- `Optimizely`, `Split.io`, `LangSmith`, `MLflow`
+- ✅ **LangSmith** — A/B testing промптов с автоматическими метриками
+- ✅ **Optimizely** — feature flags для model routing
+- ✅ **Split.io** — real-time experiment management  
+- ✅ **MLflow** — experiment tracking и comparison
+- ✅ **Weights & Biases** — model performance comparison
+
+### **LangSmith Integration:**
+```python
+from langsmith import Client
+from langsmith.evaluation import evaluate
+
+# Автоматическое A/B тестирование промптов
+client = Client()
+
+def evaluate_prompts():
+    dataset = client.create_dataset("customer_support_qa")
+    
+    # Тестируем разные промпты
+    results = evaluate(
+        lambda inputs: run_chain_variant_a(inputs),
+        data=dataset,
+        evaluators=[
+            "qa_correctness",
+            "helpfulness", 
+            "response_time"
+        ],
+        experiment_prefix="prompt_variant_a"
+    )
+    
+    return results
+```
 
 🏢 **Используют:**  
-- **Tinkoff AI** — A/B моделей в чате  
-- **GitHub Copilot** — тестирование промптов  
-- **Notion AI** — сравнение генераторов
+- **Anthropic** — A/B тестирование safety prompts в Claude
+- **Google Bard** — comparing response quality across model versions
+- **GitHub Copilot** — testing code generation prompts
+- **Alibaba Qwen** — A/B testing для разных доменов (код, математика, текст)
 
 ---
 

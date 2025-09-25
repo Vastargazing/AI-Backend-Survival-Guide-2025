@@ -7,111 +7,111 @@
 
 ---
 
-## 📚 **Оглавление**
+## 📚 Оглавление
 
 ### **Часть 1: AI Backend Fundamentals**
 
 #### 🧠 **Vector & Embeddings**
-- [🔍 Vector Databases (pgvector, Pinecone, Weaviate)](#vector-databases-pgvector-pinecone-weaviate-) ⭐⭐⭐
-- [📊 Embeddings: что это и как работает](#embeddings-что-это-и-как-работает-) ⭐⭐⭐
-- [🎯 Similarity Search и Distance Metrics](#similarity-search-и-distance-metrics-) ⭐⭐
-- [⚡ Vector Indexing (HNSW, IVF)](#vector-indexing-hnsw-ivf-) ⭐⭐
+- [🔍 Vector Databases (pgvector, Pinecone, Weaviate)](#-vector-databases-pgvector-pinecone-weaviate-) ⭐⭐⭐
+- [📊 Embeddings: что это и как работает](#-embeddings-что-это-и-как-работает-) ⭐⭐⭐
+- [🎯 Similarity Search и Distance Metrics](#-similarity-search-и-distance-metrics-) ⭐⭐
+- [⚡ Vector Indexing (HNSW, IVF)](#-vector-indexing-hnsw-ivf-) ⭐⭐
 
 #### 🌐 **LLM Integration**
-- [🤖 LLM APIs: OpenAI, Anthropic, Local Models](#llm-apis-openai-anthropic-local-models-) ⭐⭐⭐
-- [💰 Token Management и Cost Optimization](#token-management-и-cost-optimization-) ⭐⭐⭐
-- [🔄 Prompt Engineering для Production](#prompt-engineering-для-production-) ⭐⭐⭐
-- [⚡ Streaming Responses](#streaming-responses-) ⭐⭐
-- [🛡️ Rate Limiting для LLM APIs](#rate-limiting-для-llm-apis-) ⭐⭐
+- [🤖 LLM APIs: OpenAI, Anthropic, Local Models](#-llm-apis-openai-anthropic-local-models-) ⭐⭐⭐
+- [💰 Token Management и Cost Optimization](#-token-management-и-cost-optimization-) ⭐⭐⭐
+- [🔄 Prompt Engineering для Production](#-prompt-engineering-для-production-) ⭐⭐⭐
+- [⚡ Streaming Responses](#-streaming-responses-) ⭐⭐
+- [🛡️ Rate Limiting для LLM APIs](#️-rate-limiting-для-llm-apis-) ⭐⭐
 
 #### 🏗️ **RAG Architecture**
-- [🔍 RAG Pipeline: Ingestion → Retrieval → Generation](#rag-pipeline-ingestion--retrieval--generation-) ⭐⭐⭐
-- [📝 Document Processing (PDF, DOC, HTML)](#document-processing-pdf-doc-html-) ⭐⭐
-- [🧹 Text Chunking Strategies](#text-chunking-strategies-) ⭐⭐⭐
-- [🎯 Hybrid Search (Vector + BM25)](#hybrid-search-vector--bm25-) ⭐⭐
-- [📊 RAG Evaluation Metrics](#rag-evaluation-metrics-) ⭐⭐
+- [🔍 RAG Pipeline: Ingestion → Retrieval → Generation](#-rag-pipeline-ingestion--retrieval--generation-) ⭐⭐⭐
+- [📝 Document Processing (PDF, DOC, HTML)](#-document-processing-pdf-doc-html-) ⭐⭐
+- [🧹 Text Chunking Strategies](#-text-chunking-strategies-) ⭐⭐⭐
+- [🎯 Hybrid Search (Vector + BM25)](#-hybrid-search-vector--bm25-) ⭐⭐
+- [📊 RAG Evaluation Metrics](#-rag-evaluation-metrics-) ⭐⭐
 
 ---
 
 ### **Часть 2: Production AI Systems**
 
 #### ⚡ **Performance & Scalability**
-- [⚡ AI Model Caching Strategies](#ai-model-caching-strategies-) ⭐⭐⭐
-- [🔄 Async Processing для AI Tasks](#async-processing-для-ai-tasks-) ⭐⭐⭐
-- [📊 GPU Resource Management](#gpu-resource-management-) ⭐⭐
-- [⚖️ Load Balancing для AI Workloads](#load-balancing-для-ai-workloads-) ⭐⭐
-- [🎯 Model Serving (ONNX, TensorRT)](#model-serving-onnx-tensorrt-) ⭐
+- [⚡ AI Model Caching Strategies](#-ai-model-caching-strategies-) ⭐⭐⭐
+- [🔄 Async Processing для AI Tasks](#-async-processing-для-ai-tasks-) ⭐⭐⭐
+- [📊 GPU Resource Management](#-gpu-resource-management-) ⭐⭐
+- [⚖️ Load Balancing для AI Workloads](#️-load-balancing-для-ai-workloads-) ⭐⭐
+- [🎯 Model Serving (ONNX, TensorRT)](#-model-serving-onnx-tensorrt-) ⭐
 
 #### 🗄️ **AI Data Architecture**
-- [📊 Feature Stores (Feast, Tecton)](#feature-stores-feast-tecton-) ⭐⭐
-- [⚡ Real-time vs Batch ML Pipelines](#real-time-vs-batch-ml-pipelines-) ⭐⭐⭐
-- [🔄 Data Versioning для ML](#data-versioning-для-ml-) ⭐⭐
-- [📈 Vector Database Scaling](#vector-database-scaling-) ⭐⭐
+- [📊 Feature Stores (Feast, Tecton)](#-feature-stores-feast-tecton-) ⭐⭐
+- [⚡ Real-time vs Batch ML Pipelines](#-real-time-vs-batch-ml-pipelines-) ⭐⭐⭐
+- [🔄 Data Versioning для ML](#-data-versioning-для-ml-) ⭐⭐
+- [📈 Vector Database Scaling](#-vector-database-scaling-) ⭐⭐
 
 #### 🔐 **AI Security & Ethics**
-- [🛡️ Prompt Injection Protection](#prompt-injection-protection-) ⭐⭐⭐
-- [🔒 PII Detection в AI Responses](#pii-detection-в-ai-responses-) ⭐⭐⭐
-- [⚖️ AI Content Moderation](#ai-content-moderation-) ⭐⭐
-- [📋 AI Compliance (GDPR, AI Act)](#ai-compliance-gdpr-ai-act-) ⭐
+- [🛡️ Prompt Injection Protection](#️-prompt-injection-protection-) ⭐⭐⭐
+- [🔒 PII Detection в AI Responses](#-pii-detection-в-ai-responses-) ⭐⭐⭐
+- [⚖️ AI Content Moderation](#️-ai-content-moderation-) ⭐⭐
+- [📋 AI Compliance (GDPR, AI Act)](#-ai-compliance-gdpr-ai-act-) ⭐
 
 ---
 
 ### **Часть 3: AI Backend Tools & Stack**
 
 #### 🔧 **Essential Libraries**
-- [🐍 LangChain vs LlamaIndex vs Custom](#langchain-vs-llamaindex-vs-custom-) ⭐⭐⭐
-- [📊 Transformers, Sentence-Transformers](#transformers-sentence-transformers-) ⭐⭐
-- [⚡ FastAPI + WebSockets для AI](#fastapi--websockets-для-ai-) ⭐⭐⭐
-- [📈 MLflow, Weights & Biases](#mlflow-weights--biases-) ⭐⭐
+- [🐍 LangChain vs LlamaIndex vs Custom](#-langchain-vs-llamaindex-vs-custom-) ⭐⭐⭐
+- [📊 Transformers, Sentence-Transformers](#-transformers-sentence-transformers-) ⭐⭐
+- [⚡ FastAPI + WebSockets для AI](#-fastapi--websockets-для-ai-) ⭐⭐⭐
+- [📈 MLflow, Weights & Biases](#-mlflow-weights--biases-) ⭐⭐
 
 #### 🏗️ **Infrastructure**
-- [🐳 Docker для ML Models](#docker-для-ml-models-) ⭐⭐⭐
-- [☸️ Kubernetes + GPU Scheduling](#kubernetes--gpu-scheduling-) ⭐⭐
-- [☁️ Cloud AI Services (AWS Bedrock, Azure OpenAI)](#cloud-ai-services-aws-bedrock-azure-openai-) ⭐⭐
-- [📊 Model Registry (MLflow, DVC)](#model-registry-mlflow-dvc-) ⭐⭐
+- [🐳 Docker для ML Models](#-docker-для-ml-models-) ⭐⭐⭐
+- [☸️ Kubernetes + GPU Scheduling](#️-kubernetes--gpu-scheduling-) ⭐⭐
+- [☁️ Cloud AI Services (AWS Bedrock, Azure OpenAI)](#️-cloud-ai-services-aws-bedrock-azure-openai-) ⭐⭐
+- [📊 Model Registry (MLflow, DVC)](#-model-registry-mlflow-dvc-) ⭐⭐
 
 #### 📈 **Monitoring & Observability**
-- [📊 AI Model Drift Detection](#ai-model-drift-detection-) ⭐⭐⭐
-- [💰 Cost Monitoring для LLM APIs](#cost-monitoring-для-llm-apis-) ⭐⭐⭐
-- [🎯 Quality Metrics (Hallucination Detection)](#quality-metrics-hallucination-detection-) ⭐⭐
-- [🔍 AI Request Tracing](#ai-request-tracing-) ⭐⭐
+- [📊 AI Model Drift Detection](#-ai-model-drift-detection-) ⭐⭐⭐
+- [💰 Cost Monitoring для LLM APIs](#-cost-monitoring-для-llm-apis-) ⭐⭐⭐
+- [🎯 Quality Metrics (Hallucination Detection)](#-quality-metrics-hallucination-detection-) ⭐⭐
+- [🔍 AI Request Tracing](#-ai-request-tracing-) ⭐⭐
 
 ---
 
 ### **Часть 4: Real-World AI Patterns**
 
 #### 🎯 **Production AI Patterns**
-- [🔄 Circuit Breaker для AI Services](#circuit-breaker-для-ai-services-) ⭐⭐⭐
-- [⚡ AI Response Caching](#ai-response-caching-) ⭐⭐⭐
-- [🎯 Fallback Strategies](#fallback-strategies-) ⭐⭐
-- [📊 A/B Testing AI Models](#ab-testing-ai-models-) ⭐⭐
+- [🔄 Circuit Breaker для AI Services](#-circuit-breaker-для-ai-services-) ⭐⭐⭐
+- [⚡ AI Response Caching](#-ai-response-caching-) ⭐⭐⭐
+- [🎯 Fallback Strategies](#-fallback-strategies-) ⭐⭐
+- [📊 A/B Testing AI Models](#-ab-testing-ai-models-) ⭐⭐
 
 #### 🏗️ **AI System Design**
-- [🤖 Chatbot Architecture](#chatbot-architecture-) ⭐⭐⭐
-- [🔍 Semantic Search System](#semantic-search-system-) ⭐⭐⭐
-- [📝 Content Generation Pipeline](#content-generation-pipeline-) ⭐⭐
-- [🎯 Recommendation Engine](#recommendation-engine-) ⭐⭐
+- [🤖 Chatbot Architecture](#-chatbot-architecture-) ⭐⭐⭐
+- [🔍 Semantic Search System](#-semantic-search-system-) ⭐⭐⭐
+- [📝 Content Generation Pipeline](#-content-generation-pipeline-) ⭐⭐
+- [🎯 Recommendation Engine](#-recommendation-engine-) ⭐⭐
 
 ---
 
 ### **Часть 5: AI Backend Interview Prep**
 
 #### 🎯 **AI Technical Questions**
-- [🧠 "Объясни как работает RAG"](#объясни-как-работает-rag-) ⭐⭐⭐
-- [💰 "Как оптимизировать затраты на LLM?"](#как-оптимизировать-затраты-на-llm-) ⭐⭐⭐
-- [🔍 "Vector search vs SQL search"](#vector-search-vs-sql-search-) ⭐⭐⭐
-- [⚡ "Bottlenecks в AI системах"](#bottlenecks-в-ai-системах-) ⭐⭐
+- [🧠 "Объясни как работает RAG"](#-объясни-как-работает-rag-) ⭐⭐⭐
+- [💰 "Как оптимизировать затраты на LLM?"](#-как-оптимизировать-затраты-на-llm-) ⭐⭐⭐
+- [🔍 "Vector search vs SQL search"](#-vector-search-vs-sql-search-) ⭐⭐⭐
+- [⚡ "Bottlenecks в AI системах"](#-bottlenecks-в-ai-системах-) ⭐⭐
 
 #### 🏗️ **System Design для AI**
-- [🤖 "Спроектируй ChatGPT-like сервис"](#спроектируй-chatgpt-like-сервис-) ⭐⭐⭐
-- [🔍 "AI-powered поиск для e-commerce"](#ai-powered-поиск-для-e-commerce-) ⭐⭐
-- [📊 "ML Platform для 40+ команд"](#ml-platform-для-40-команд-) ⭐⭐
+- [🤖 "Спроектируй ChatGPT-like сервис"](#-спроектируй-chatgpt-like-сервис-) ⭐⭐⭐
+- [🔍 "AI-powered поиск для e-commerce"](#-ai-powered-поиск-для-e-commerce-) ⭐⭐
+- [📊 "ML Platform для 40+ команд"](#-ml-platform-для-40-команд-) ⭐⭐
 
 ---
 
 ## 📖 **Легенда важности**
-- ⭐⭐⭐ **Must Know** - обязательно для собеседований и продакшена
-- ⭐⭐ **Should Know** - желательно знать для senior позиций
+- ⭐⭐⭐ **Must Know** - критично для AI Backend Engineer
+- ⭐⭐ **Should Know** - желательно для продвинутого уровня  
 - ⭐ **Nice to Know** - для экспертного уровня
 
 ---
@@ -119,7 +119,8 @@
 ## 🔥 **Быстрый старт**
 **Новичок в AI Backend?** Начни с разделов ⭐⭐⭐  
 **Готовишься к собесу?** Изучи "Часть 5: AI Backend Interview Prep"  
-**Строишь production систему?** Переходи к "Части 2: Production AI Systems"
+**Хочешь system design?** Переходи к "Часть 4: Real-World AI Patterns"  
+**Production опыт?** Сосредоточься на "Часть 2: Production AI Systems"
 
 ---
 
@@ -297,10 +298,6 @@ LLM считает токены → чем больше токенов, тем �
 
 ---
 
-## 🏗️ RAG Architecture
-
----
-
 ## 🔍 RAG Pipeline: Ingestion → Retrieval → Generation ⭐⭐⭐
 
 **Что это:**  
@@ -382,11 +379,6 @@ LLM считает токены → чем больше токенов, тем �
 - **OpenAI evals** — для тестов моделей  
 - **Tinkoff AI** — ручная и автоматическая оценка  
 - **Meta** — eval pipeline для RAG моделей
-
----
-
-## ⚙️ Часть 2: Production AI Systems  
-🚀 Performance & Scalability
 
 ---
 
@@ -478,10 +470,6 @@ LLM считает токены → чем больше токенов, тем �
 
 ---
 
-## 🗄️ AI Data Architecture
-
----
-
 ## 📊 Feature Stores (Feast, Tecton) ⭐⭐
 
 **Что это:**  
@@ -561,9 +549,6 @@ ML-пайплайны бывают двух типов:
 - **You.com** — Weaviate + hybrid search
 
 ---
-## 🔐 AI Security & Ethics
-
----
 
 ## 🛡️ Prompt Injection Protection ⭐⭐⭐
 
@@ -635,11 +620,6 @@ ML-пайплайны бывают двух типов:
 
 ---
 
-## 🛠️ Часть 3: AI Backend Tools & Stack  
-🔧 Essential Libraries
-
----
-
 ## 🐍 LangChain vs LlamaIndex vs Custom ⭐⭐⭐
 
 **Что это:**  
@@ -708,10 +688,6 @@ FastAPI — быстрый backend-фреймворк, WebSocket — для ст
 
 ---
 
-## 🏗️ Infrastructure
-
----
-
 ## 🐳 Docker для ML Models ⭐⭐⭐
 
 **Что это:**  
@@ -777,9 +753,6 @@ FastAPI — быстрый backend-фреймворк, WebSocket — для ст
 - **Tinkoff AI** — MLflow + DVC  
 - **DeepMind** — MLflow  
 - **VK AI** — DVC для моделей и данных
-
----
-## 📈 Monitoring & Observability
 
 ---
 
@@ -861,11 +834,6 @@ FastAPI — быстрый backend-фреймворк, WebSocket — для ст
 
 ---
 
-## 🏢 Часть 4: Real-World AI Patterns  
-🎯 Production AI Patterns
-
----
-
 ## 🔄 Circuit Breaker для AI Services ⭐⭐⭐
 
 **Что это:**  
@@ -941,9 +909,6 @@ FastAPI — быстрый backend-фреймворк, WebSocket — для ст
 - **Tinkoff AI** — A/B моделей в чате  
 - **GitHub Copilot** — тестирование промптов  
 - **Notion AI** — сравнение генераторов
-
----
-## 🏗️ AI System Design
 
 ---
 
@@ -1029,11 +994,6 @@ FastAPI — быстрый backend-фреймворк, WebSocket — для ст
 
 ---
 
-## 💼 Часть 5: AI Backend Interview Prep  
-🎯 AI Technical Questions
-
----
-
 ## 🧠 "Объясни как работает RAG" ⭐⭐⭐
 
 **Ответ:**  
@@ -1086,10 +1046,6 @@ RAG = Retrieval-Augmented Generation
 
 🏢 **Пример:**  
 **Tinkoff AI** — async обработка + кэш + GPU scheduler
-
----
-
-## 🏗️ System Design для AI
 
 ---
 
@@ -1146,5 +1102,3 @@ RAG = Retrieval-Augmented Generation
 **Tinkoff AI** — MLflow + Feast + K8s  
 **Uber Michelangelo** — платформа для всех ML-команд  
 **Yandex Cloud** — ML платформы с GPU и трекингом
-
----

@@ -2,89 +2,124 @@
 
 <img width="624" height="624" alt="Image" src="https://github.com/user-attachments/assets/df83e7cf-8f98-41a3-9076-68a795b25a9d" />
 
-Это практическая шпаргалка для инженеров, работающих с продакшн-системами на базе LLM, RAG и ML.  
+Это практическая шпаргалка для инженеров, работающих с продакшн-системами на базе LLM, RAG и ML.
 Документ охватывает архитектуру, инструменты, безопасность, мониторинг и реальные паттерны, которые применяются в банках, финтехе, e-commerce и AI-продуктах.
 
+📚 Оглавление
+Часть 1: AI Backend Fundamentals
+🧠 Vector & Embeddings
 
-## 📚 Часть 1: AI Backend Fundamentals
-- 🔍 Vector Databases (pgvector, Pinecone, Weaviate)
-- 📊 Embeddings: что это и как работает
-- 🎯 Similarity Search и Distance Metrics
-- ⚡ Vector Indexing (HNSW, IVF)
+🔍 Vector Databases (pgvector, Pinecone, Weaviate) ⭐⭐⭐
+📊 Embeddings: что это и как работает ⭐⭐⭐
+🎯 Similarity Search и Distance Metrics ⭐⭐
+⚡ Vector Indexing (HNSW, IVF) ⭐⭐
 
-## 🌐 LLM Integration
-- 🤖 LLM APIs: OpenAI, Anthropic, Local Models
-- 💰 Token Management и Cost Optimization
-- 🔄 Prompt Engineering для Production
-- ⚡ Streaming Responses
-- 🛡️ Rate Limiting для LLM APIs
+🌐 LLM Integration
 
-## 🏗️ RAG Architecture
-- 🔍 RAG Pipeline: Ingestion → Retrieval → Generation
-- 📝 Document Processing (PDF, DOC, HTML)
-- 🧹 Text Chunking Strategies
-- 🎯 Hybrid Search (Vector + BM25)
-- 📊 RAG Evaluation Metrics
+🤖 LLM APIs: OpenAI, Anthropic, Local Models ⭐⭐⭐
+💰 Token Management и Cost Optimization ⭐⭐⭐
+🔄 Prompt Engineering для Production ⭐⭐⭐
+⚡ Streaming Responses ⭐⭐
+🛡️ Rate Limiting для LLM APIs ⭐⭐
 
-## ⚙️ Часть 2: Production AI Systems
-- ⚡ AI Model Caching Strategies
-- 🔄 Async Processing для AI Tasks
-- 📊 GPU Resource Management
-- ⚖️ Load Balancing для AI Workloads
-- 🎯 Model Serving (ONNX, TensorRT)
+🏗️ RAG Architecture
 
-## 🗄️ AI Data Architecture
-- 📊 Feature Stores (Feast, Tecton)
-- ⚡ Real-time vs Batch ML Pipelines
-- 🔄 Data Versioning для ML
-- 📈 Vector Database Scaling
+🔍 RAG Pipeline: Ingestion → Retrieval → Generation ⭐⭐⭐
+📝 Document Processing (PDF, DOC, HTML) ⭐⭐
+🧹 Text Chunking Strategies ⭐⭐⭐
+🎯 Hybrid Search (Vector + BM25) ⭐⭐
+📊 RAG Evaluation Metrics ⭐⭐
 
-## 🔐 AI Security & Ethics
-- 🛡️ Prompt Injection Protection
-- 🔒 PII Detection в AI Responses
-- ⚖️ AI Content Moderation
-- 📋 AI Compliance (GDPR, AI Act)
 
-## 🛠️ Часть 3: AI Backend Tools & Stack
+Часть 2: Production AI Systems
+⚡ Performance & Scalability
 
-### 🔧 Essential Libraries
-- 🐍 LangChain vs LlamaIndex vs Custom
-- 📊 Transformers, Sentence-Transformers
-- ⚡ FastAPI + WebSockets для AI
-- 📈 MLflow, Weights & Biases
+⚡ AI Model Caching Strategies ⭐⭐⭐
+🔄 Async Processing для AI Tasks ⭐⭐⭐
+📊 GPU Resource Management ⭐⭐
+⚖️ Load Balancing для AI Workloads ⭐⭐
+🎯 Model Serving (ONNX, TensorRT) ⭐
 
-### 🏗️ Infrastructure
-- 🐳 Docker для ML Models
-- ☸️ Kubernetes + GPU Scheduling
-- ☁️ Cloud AI Services (AWS Bedrock, Azure OpenAI)
-- 📊 Model Registry (MLflow, DVC)
+🗄️ AI Data Architecture
 
-## 📈 Monitoring & Observability
-- 📊 AI Model Drift Detection
-- 💰 Cost Monitoring для LLM APIs
-- 🎯 Quality Metrics (Hallucination Detection)
-- 🔍 AI Request Tracing
+📊 Feature Stores (Feast, Tecton) ⭐⭐
+⚡ Real-time vs Batch ML Pipelines ⭐⭐⭐
+🔄 Data Versioning для ML ⭐⭐
+📈 Vector Database Scaling ⭐⭐
 
-## 🏢 Часть 4: Real-World AI Patterns
+🔐 AI Security & Ethics
 
-### 🎯 Production AI Patterns
-- 🔄 Circuit Breaker для AI Services
-- ⚡ AI Response Caching
-- 🎯 Fallback Strategies
-- 📊 A/B Testing AI Models
+🛡️ Prompt Injection Protection ⭐⭐⭐
+🔒 PII Detection в AI Responses ⭐⭐⭐
+⚖️ AI Content Moderation ⭐⭐
+📋 AI Compliance (GDPR, AI Act) ⭐
 
-## 🏗️ System Design для AI
-- 🤖 Спроектируй ChatGPT-like сервис
-- 🔍 AI-powered поиск для e-commerce
-- 📊 ML Platform для 40+ команд
 
-## 💼 Часть 5: AI Backend Interview Prep
+Часть 3: AI Backend Tools & Stack
+🔧 Essential Libraries
 
-### 🎯 AI Technical Questions
-- 🧠 Объясни как работает RAG
-- 💰 Как оптимизировать затраты на LLM
-- 🔍 Vector search vs SQL search
-- ⚡ Bottlenecks в AI системах
+🐍 LangChain vs LlamaIndex vs Custom ⭐⭐⭐
+📊 Transformers, Sentence-Transformers ⭐⭐
+⚡ FastAPI + WebSockets для AI ⭐⭐⭐
+📈 MLflow, Weights & Biases ⭐⭐
+
+🏗️ Infrastructure
+
+🐳 Docker для ML Models ⭐⭐⭐
+☸️ Kubernetes + GPU Scheduling ⭐⭐
+☁️ Cloud AI Services (AWS Bedrock, Azure OpenAI) ⭐⭐
+📊 Model Registry (MLflow, DVC) ⭐⭐
+
+📈 Monitoring & Observability
+
+📊 AI Model Drift Detection ⭐⭐⭐
+💰 Cost Monitoring для LLM APIs ⭐⭐⭐
+🎯 Quality Metrics (Hallucination Detection) ⭐⭐
+🔍 AI Request Tracing ⭐⭐
+
+
+Часть 4: Real-World AI Patterns
+🎯 Production AI Patterns
+
+🔄 Circuit Breaker для AI Services ⭐⭐⭐
+⚡ AI Response Caching ⭐⭐⭐
+🎯 Fallback Strategies ⭐⭐
+📊 A/B Testing AI Models ⭐⭐
+
+🏗️ AI System Design
+
+🤖 Chatbot Architecture ⭐⭐⭐
+🔍 Semantic Search System ⭐⭐⭐
+📝 Content Generation Pipeline ⭐⭐
+🎯 Recommendation Engine ⭐⭐
+
+
+Часть 5: AI Backend Interview Prep
+🎯 AI Technical Questions
+
+🧠 "Объясни как работает RAG" ⭐⭐⭐
+💰 "Как оптимизировать затраты на LLM?" ⭐⭐⭐
+🔍 "Vector search vs SQL search" ⭐⭐⭐
+⚡ "Bottlenecks в AI системах" ⭐⭐
+
+🏗️ System Design для AI
+
+🤖 "Спроектируй ChatGPT-like сервис" ⭐⭐⭐
+🔍 "AI-powered поиск для e-commerce" ⭐⭐
+📊 "ML Platform для 40+ команд" ⭐⭐
+
+
+📖 Легенда важности
+
+⭐⭐⭐ Must Know - обязательно для собеседований и продакшена
+⭐⭐ Should Know - желательно знать для senior позиций
+⭐ Nice to Know - для экспертного уровня
+
+
+🔥 Быстрый старт
+Новичок в AI Backend? Начни с разделов ⭐⭐⭐
+Готовишься к собесу? Изучи "Часть 5: AI Backend Interview Prep"
+Строишь production систему? Переходи к "Части 2: Production AI Systems"
 
 ---
 

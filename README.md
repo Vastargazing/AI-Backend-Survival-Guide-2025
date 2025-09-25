@@ -2,124 +2,124 @@
 
 <img width="624" height="624" alt="Image" src="https://github.com/user-attachments/assets/df83e7cf-8f98-41a3-9076-68a795b25a9d" />
 
-Это практическая шпаргалка для инженеров, работающих с продакшн-системами на базе LLM, RAG и ML.
+Это практическая шпаргалка для инженеров, работающих с продакшн-системами на базе LLM, RAG и ML.  
 Документ охватывает архитектуру, инструменты, безопасность, мониторинг и реальные паттерны, которые применяются в банках, финтехе, e-commerce и AI-продуктах.
 
-📚 Оглавление
-Часть 1: AI Backend Fundamentals
-🧠 Vector & Embeddings
+---
 
-🔍 Vector Databases (pgvector, Pinecone, Weaviate) ⭐⭐⭐
-📊 Embeddings: что это и как работает ⭐⭐⭐
-🎯 Similarity Search и Distance Metrics ⭐⭐
-⚡ Vector Indexing (HNSW, IVF) ⭐⭐
+## 📚 **Оглавление**
 
-🌐 LLM Integration
+### **Часть 1: AI Backend Fundamentals**
 
-🤖 LLM APIs: OpenAI, Anthropic, Local Models ⭐⭐⭐
-💰 Token Management и Cost Optimization ⭐⭐⭐
-🔄 Prompt Engineering для Production ⭐⭐⭐
-⚡ Streaming Responses ⭐⭐
-🛡️ Rate Limiting для LLM APIs ⭐⭐
+#### 🧠 **Vector & Embeddings**
+- [🔍 Vector Databases (pgvector, Pinecone, Weaviate)](#vector-databases-pgvector-pinecone-weaviate-) ⭐⭐⭐
+- [📊 Embeddings: что это и как работает](#embeddings-что-это-и-как-работает-) ⭐⭐⭐
+- [🎯 Similarity Search и Distance Metrics](#similarity-search-и-distance-metrics-) ⭐⭐
+- [⚡ Vector Indexing (HNSW, IVF)](#vector-indexing-hnsw-ivf-) ⭐⭐
 
-🏗️ RAG Architecture
+#### 🌐 **LLM Integration**
+- [🤖 LLM APIs: OpenAI, Anthropic, Local Models](#llm-apis-openai-anthropic-local-models-) ⭐⭐⭐
+- [💰 Token Management и Cost Optimization](#token-management-и-cost-optimization-) ⭐⭐⭐
+- [🔄 Prompt Engineering для Production](#prompt-engineering-для-production-) ⭐⭐⭐
+- [⚡ Streaming Responses](#streaming-responses-) ⭐⭐
+- [🛡️ Rate Limiting для LLM APIs](#rate-limiting-для-llm-apis-) ⭐⭐
 
-🔍 RAG Pipeline: Ingestion → Retrieval → Generation ⭐⭐⭐
-📝 Document Processing (PDF, DOC, HTML) ⭐⭐
-🧹 Text Chunking Strategies ⭐⭐⭐
-🎯 Hybrid Search (Vector + BM25) ⭐⭐
-📊 RAG Evaluation Metrics ⭐⭐
+#### 🏗️ **RAG Architecture**
+- [🔍 RAG Pipeline: Ingestion → Retrieval → Generation](#rag-pipeline-ingestion--retrieval--generation-) ⭐⭐⭐
+- [📝 Document Processing (PDF, DOC, HTML)](#document-processing-pdf-doc-html-) ⭐⭐
+- [🧹 Text Chunking Strategies](#text-chunking-strategies-) ⭐⭐⭐
+- [🎯 Hybrid Search (Vector + BM25)](#hybrid-search-vector--bm25-) ⭐⭐
+- [📊 RAG Evaluation Metrics](#rag-evaluation-metrics-) ⭐⭐
 
+---
 
-Часть 2: Production AI Systems
-⚡ Performance & Scalability
+### **Часть 2: Production AI Systems**
 
-⚡ AI Model Caching Strategies ⭐⭐⭐
-🔄 Async Processing для AI Tasks ⭐⭐⭐
-📊 GPU Resource Management ⭐⭐
-⚖️ Load Balancing для AI Workloads ⭐⭐
-🎯 Model Serving (ONNX, TensorRT) ⭐
+#### ⚡ **Performance & Scalability**
+- [⚡ AI Model Caching Strategies](#ai-model-caching-strategies-) ⭐⭐⭐
+- [🔄 Async Processing для AI Tasks](#async-processing-для-ai-tasks-) ⭐⭐⭐
+- [📊 GPU Resource Management](#gpu-resource-management-) ⭐⭐
+- [⚖️ Load Balancing для AI Workloads](#load-balancing-для-ai-workloads-) ⭐⭐
+- [🎯 Model Serving (ONNX, TensorRT)](#model-serving-onnx-tensorrt-) ⭐
 
-🗄️ AI Data Architecture
+#### 🗄️ **AI Data Architecture**
+- [📊 Feature Stores (Feast, Tecton)](#feature-stores-feast-tecton-) ⭐⭐
+- [⚡ Real-time vs Batch ML Pipelines](#real-time-vs-batch-ml-pipelines-) ⭐⭐⭐
+- [🔄 Data Versioning для ML](#data-versioning-для-ml-) ⭐⭐
+- [📈 Vector Database Scaling](#vector-database-scaling-) ⭐⭐
 
-📊 Feature Stores (Feast, Tecton) ⭐⭐
-⚡ Real-time vs Batch ML Pipelines ⭐⭐⭐
-🔄 Data Versioning для ML ⭐⭐
-📈 Vector Database Scaling ⭐⭐
+#### 🔐 **AI Security & Ethics**
+- [🛡️ Prompt Injection Protection](#prompt-injection-protection-) ⭐⭐⭐
+- [🔒 PII Detection в AI Responses](#pii-detection-в-ai-responses-) ⭐⭐⭐
+- [⚖️ AI Content Moderation](#ai-content-moderation-) ⭐⭐
+- [📋 AI Compliance (GDPR, AI Act)](#ai-compliance-gdpr-ai-act-) ⭐
 
-🔐 AI Security & Ethics
+---
 
-🛡️ Prompt Injection Protection ⭐⭐⭐
-🔒 PII Detection в AI Responses ⭐⭐⭐
-⚖️ AI Content Moderation ⭐⭐
-📋 AI Compliance (GDPR, AI Act) ⭐
+### **Часть 3: AI Backend Tools & Stack**
 
+#### 🔧 **Essential Libraries**
+- [🐍 LangChain vs LlamaIndex vs Custom](#langchain-vs-llamaindex-vs-custom-) ⭐⭐⭐
+- [📊 Transformers, Sentence-Transformers](#transformers-sentence-transformers-) ⭐⭐
+- [⚡ FastAPI + WebSockets для AI](#fastapi--websockets-для-ai-) ⭐⭐⭐
+- [📈 MLflow, Weights & Biases](#mlflow-weights--biases-) ⭐⭐
 
-Часть 3: AI Backend Tools & Stack
-🔧 Essential Libraries
+#### 🏗️ **Infrastructure**
+- [🐳 Docker для ML Models](#docker-для-ml-models-) ⭐⭐⭐
+- [☸️ Kubernetes + GPU Scheduling](#kubernetes--gpu-scheduling-) ⭐⭐
+- [☁️ Cloud AI Services (AWS Bedrock, Azure OpenAI)](#cloud-ai-services-aws-bedrock-azure-openai-) ⭐⭐
+- [📊 Model Registry (MLflow, DVC)](#model-registry-mlflow-dvc-) ⭐⭐
 
-🐍 LangChain vs LlamaIndex vs Custom ⭐⭐⭐
-📊 Transformers, Sentence-Transformers ⭐⭐
-⚡ FastAPI + WebSockets для AI ⭐⭐⭐
-📈 MLflow, Weights & Biases ⭐⭐
+#### 📈 **Monitoring & Observability**
+- [📊 AI Model Drift Detection](#ai-model-drift-detection-) ⭐⭐⭐
+- [💰 Cost Monitoring для LLM APIs](#cost-monitoring-для-llm-apis-) ⭐⭐⭐
+- [🎯 Quality Metrics (Hallucination Detection)](#quality-metrics-hallucination-detection-) ⭐⭐
+- [🔍 AI Request Tracing](#ai-request-tracing-) ⭐⭐
 
-🏗️ Infrastructure
+---
 
-🐳 Docker для ML Models ⭐⭐⭐
-☸️ Kubernetes + GPU Scheduling ⭐⭐
-☁️ Cloud AI Services (AWS Bedrock, Azure OpenAI) ⭐⭐
-📊 Model Registry (MLflow, DVC) ⭐⭐
+### **Часть 4: Real-World AI Patterns**
 
-📈 Monitoring & Observability
+#### 🎯 **Production AI Patterns**
+- [🔄 Circuit Breaker для AI Services](#circuit-breaker-для-ai-services-) ⭐⭐⭐
+- [⚡ AI Response Caching](#ai-response-caching-) ⭐⭐⭐
+- [🎯 Fallback Strategies](#fallback-strategies-) ⭐⭐
+- [📊 A/B Testing AI Models](#ab-testing-ai-models-) ⭐⭐
 
-📊 AI Model Drift Detection ⭐⭐⭐
-💰 Cost Monitoring для LLM APIs ⭐⭐⭐
-🎯 Quality Metrics (Hallucination Detection) ⭐⭐
-🔍 AI Request Tracing ⭐⭐
+#### 🏗️ **AI System Design**
+- [🤖 Chatbot Architecture](#chatbot-architecture-) ⭐⭐⭐
+- [🔍 Semantic Search System](#semantic-search-system-) ⭐⭐⭐
+- [📝 Content Generation Pipeline](#content-generation-pipeline-) ⭐⭐
+- [🎯 Recommendation Engine](#recommendation-engine-) ⭐⭐
 
+---
 
-Часть 4: Real-World AI Patterns
-🎯 Production AI Patterns
+### **Часть 5: AI Backend Interview Prep**
 
-🔄 Circuit Breaker для AI Services ⭐⭐⭐
-⚡ AI Response Caching ⭐⭐⭐
-🎯 Fallback Strategies ⭐⭐
-📊 A/B Testing AI Models ⭐⭐
+#### 🎯 **AI Technical Questions**
+- [🧠 "Объясни как работает RAG"](#объясни-как-работает-rag-) ⭐⭐⭐
+- [💰 "Как оптимизировать затраты на LLM?"](#как-оптимизировать-затраты-на-llm-) ⭐⭐⭐
+- [🔍 "Vector search vs SQL search"](#vector-search-vs-sql-search-) ⭐⭐⭐
+- [⚡ "Bottlenecks в AI системах"](#bottlenecks-в-ai-системах-) ⭐⭐
 
-🏗️ AI System Design
+#### 🏗️ **System Design для AI**
+- [🤖 "Спроектируй ChatGPT-like сервис"](#спроектируй-chatgpt-like-сервис-) ⭐⭐⭐
+- [🔍 "AI-powered поиск для e-commerce"](#ai-powered-поиск-для-e-commerce-) ⭐⭐
+- [📊 "ML Platform для 40+ команд"](#ml-platform-для-40-команд-) ⭐⭐
 
-🤖 Chatbot Architecture ⭐⭐⭐
-🔍 Semantic Search System ⭐⭐⭐
-📝 Content Generation Pipeline ⭐⭐
-🎯 Recommendation Engine ⭐⭐
+---
 
+## 📖 **Легенда важности**
+- ⭐⭐⭐ **Must Know** - обязательно для собеседований и продакшена
+- ⭐⭐ **Should Know** - желательно знать для senior позиций
+- ⭐ **Nice to Know** - для экспертного уровня
 
-Часть 5: AI Backend Interview Prep
-🎯 AI Technical Questions
+---
 
-🧠 "Объясни как работает RAG" ⭐⭐⭐
-💰 "Как оптимизировать затраты на LLM?" ⭐⭐⭐
-🔍 "Vector search vs SQL search" ⭐⭐⭐
-⚡ "Bottlenecks в AI системах" ⭐⭐
-
-🏗️ System Design для AI
-
-🤖 "Спроектируй ChatGPT-like сервис" ⭐⭐⭐
-🔍 "AI-powered поиск для e-commerce" ⭐⭐
-📊 "ML Platform для 40+ команд" ⭐⭐
-
-
-📖 Легенда важности
-
-⭐⭐⭐ Must Know - обязательно для собеседований и продакшена
-⭐⭐ Should Know - желательно знать для senior позиций
-⭐ Nice to Know - для экспертного уровня
-
-
-🔥 Быстрый старт
-Новичок в AI Backend? Начни с разделов ⭐⭐⭐
-Готовишься к собесу? Изучи "Часть 5: AI Backend Interview Prep"
-Строишь production систему? Переходи к "Части 2: Production AI Systems"
+## 🔥 **Быстрый старт**
+**Новичок в AI Backend?** Начни с разделов ⭐⭐⭐  
+**Готовишься к собесу?** Изучи "Часть 5: AI Backend Interview Prep"  
+**Строишь production систему?** Переходи к "Части 2: Production AI Systems"
 
 ---
 
